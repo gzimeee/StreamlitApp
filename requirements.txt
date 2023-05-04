@@ -7,3 +7,4 @@ streamlit_autheticator
 yaml 
 os 
 os.path 
+safeloader
