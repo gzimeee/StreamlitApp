@@ -3,7 +3,7 @@ matplotlib
 datetime
 pillow
 jsonbin 
-streamlit_autheticator 
+streamlit_authenticator 
 yaml 
 os 
 os.path 
