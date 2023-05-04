@@ -4,7 +4,4 @@ datetime
 pillow
 jsonbin 
 streamlit_authenticator 
-yaml 
-os 
-os.path 
-safeloader
+PyYAML
