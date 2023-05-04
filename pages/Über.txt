@@ -36,5 +36,5 @@ st.subheader('Datum: 10.04.2023')
 st.subheader('Entwickler: Gzime Ramadani, Rinesa Shabija, Priya Jose')
 st.subheader('Im Auftrag der Zürcher Hochschule für angewandte Wissenschaften')
 from PIL import Image
-image = Image.open('media\zhaw.png')
+image = Image.open('media/zhaw.png')
 st.image(image, caption='Copyright ZHAW')
