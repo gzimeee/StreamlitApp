@@ -51,7 +51,7 @@ st.title ("Leukorechner")
 st.header("Welcome to Leukofit")
 
 from PIL import Image
-image = Image.open('media\Blutzellen.jpg')
+image = Image.open('media/Blutzellen.jpg')
 st.image(image, caption='Leukozyten')
 
 
