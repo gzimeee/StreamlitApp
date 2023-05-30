@@ -70,7 +70,7 @@ def json_einlesen():
     
     # Sollte JSON-Datei nicht existieren, wird eine Meldung ausgegeben.
     else:
-        st.write('Bitte Werte im Daten im Leukofitrechner eingeben')
+        st.write('Bitte Werte im Leukorechner eingeben')
 
 # Funktion wird aufgerufen
 json_einlesen()
