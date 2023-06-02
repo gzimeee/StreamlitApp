@@ -13,7 +13,7 @@ Created on Thu Apr  6 21:30:54 2023
 #   Beschreibung: Diese APP berechnet die Anzhal an weissen Blutzellen.
 #    Anhand von Referenzwerten und Eingabewerten, wird das Ergebniss in einem 
 #   Balkendiagramm aufgezeigt. Zusätzlich wird die Diagnose erstellt.
-#    Datum: 12.04.2023
+#    Datum: 02.06.2023
 #    Autoren: Gzime Ramadani, Rinesa Shabija, Priya Jose
 # =============================================================================
 
@@ -27,6 +27,7 @@ Created on Thu Apr  6 21:30:54 2023
 # =============================================================================
 
 import streamlit as st
+
 st.set_page_config(
     page_title="Leukorechner",
     page_icon="🩸",
@@ -49,6 +50,12 @@ from datetime import datetime
 # =============================================================================
 st.title ("Leukorechner")
 st.header("Welcome to Leukofit")
+
+def local_css(file_name):
+    with open(file_name) as f:
+        st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
+
+local_css("style.css")
 
 from PIL import Image
 image = Image.open('media/blutzellen.jpg')
@@ -158,7 +165,7 @@ def make_blood_chart(Stabkernige_Neutrophile, Segmentkernige_Neutrophile, Eosino
 
     # Berechnen und Anzeigen von Differentialblutkörpererkrankungen
     diff = user_values['User Input'] - reference_values['Reference Range'].apply(lambda x: (x[0]+x[1])/2)
-    diseases = ['Linksverschibung', 'Pelger_Huet_Anomalie', 'Eosinophilie']
+    diseases = ['Linksverschiebung', 'Pelger_Huet_Anomalie', 'Eosinophilie']
     result = ''
     for i in range(len(diff)):
         if diff[i] > (reference_values['Reference Range'][i][1]-reference_values['Reference Range'][i][0])/2:
@@ -271,21 +278,13 @@ user_values = pd.DataFrame({'Type': ['Stabkernige_Neutrophile', 'Segmentkernige_
 diff_eo = user_values['User Input'] - reference_values['Reference Range'].apply(lambda x: (x[0]+x[1])/2)
 
 # Definieren des Schwellenwerts für Eosinophilie
-threshold_eo = (reference_values['Reference Range'][1][1] - reference_values['Reference Range'][1][0]) / 2
+threshold_eo = (reference_values['Reference Range'][0][1] - reference_values['Reference Range'][2][0]) / 2
 
 # Prüfen für Eosinophilie
-if abs(diff_eo[2]) > threshold_ph:
+if abs(diff_eo[2]) > threshold_eo:
     diagnosis_eo = "Eosinophilie"
 else:
     diagnosis_eo = "No Eosinophilie"
     
 # Diagnose anzeigen fuer Eosinophilie
 print("Diagnosis for Eosinophilie: ", diagnosis_eo) 
-
-
-
-
-
-
-
-
