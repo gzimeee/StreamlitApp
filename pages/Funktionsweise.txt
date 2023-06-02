@@ -10,9 +10,12 @@
 
 
 
+
+
+
 # Schritt 1: Erstellen der Multipage APP=======================================
 #   Es wird eine Multipage APP erstellt.
-#   Es wird der Seitentitel mir Icon definiert.
+#   Es wird der Seitentitel mit Icon definiert.
 #   Es werden die Bilbiotheken / Packages importiert.
 # =============================================================================
 
@@ -31,6 +34,7 @@ st.header("Beschreibung")
 
 
 
+
 def local_css(file_name):
     with open(file_name) as f:
         st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
@@ -39,22 +43,21 @@ local_css("style.css")
 
 
 
+
+
+
 # Schritt 2: Text mit Referenztabelle==========================================
 #   Es wird eine Text mit der Funktionsweise sowie eine Tabelle mit den
-#   mit den Referenzwerten eingefügt
+#   Referenzwerten eingefügt
 # =============================================================================
-
 
 
 # Informationstext
 string = "Dieser Code ist eine Streamlit-App, die die Anzahl der weißen Blutkörperchen berechnet. Die App erstellt sechs Eingabefelder für die verschiedenen Arten von weißen Blutkörperchen (Stabkernige Neutrophile, Segmentkernige Neutrophile, Eosinophile, Basophile, Monozyten und Lymphozyten). Anhand der Referenzwerte und der Eingabewerte berechnet die App das Ergebnis und zeigt es in einem Balkendiagramm an. Das Balkendiagramm zeigt die Referenzwerte und die Benutzereingabe an und färbt die Balken entsprechend ein (Rot = Hoch, Grün = Normal, Gelb = Tief). Zusätzlich wird eine Diagnose erstellt."
 st.markdown(string)
 
-
-
 # Header für die Tabelle
 st.header("Referenzwerte")
-
 
 
 # Daten für die Tabelle
@@ -65,14 +68,18 @@ data = {
     'Eosinophilie in %': ['4.0', '18.0', '57.0', '0.0', '8.0', '13.0']
 }
 
+
 # Erstellen des DataFrame
 df = pd.DataFrame(data)
+
 
 # Spaltenüberschrift fett formatieren
 df = df.style.set_caption("Blutwerte").set_table_styles([{'selector': 'th', 'props': [('font-weight', 'bold')]}])
 
+
 # Erstellen der Tabelle mit Streamlit
 st.table(df)
+
 
 # Informationstext
 string2 = "Bei der Eingabe von Werten bzw. beim Drücken auf den Start-Knopf, werden die eingegebenen Werte in die JSON-Datei blutkörperchen.json geschrieben. Auf der Page JSON-Daten werden die Daten aus der JSON-Datei eingelesen und in Tabellenansicht ausgegeben."
