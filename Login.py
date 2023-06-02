@@ -4,7 +4,7 @@
 #   Hier werden die Informationen zum Login der Leukofit APP 
 #   beschrieben 
 #   
-#    Datum: 02.05.2023
+#    Datum: 02.06.2023
 #    Autoren: Gzime Ramadani, Rinesa Shabija, Priya Jose
 # =============================================================================
 
@@ -21,10 +21,22 @@ import os
 import os.path
 
 
+#from jsonbin import load_key, save_key
+
+
+
 st.set_page_config(
     page_title="Loginseite",
     page_icon="🔒",
 )
+
+def local_css(file_name):
+    with open(file_name) as f:
+        st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
+
+local_css("style.css")
+
+
 
 
 # Schritt 2: Lesen der Benutzerdaten===========================================
@@ -46,7 +58,7 @@ with open('config.yaml') as file:
     config['preauthorized']
 )
     
-name, authentication_status, username = authenticator.login('Login', 'main')
+fullname, authentication_status, username = authenticator.login('Login', 'main')
 
 
 # Schritt 3: Alle Pages in .txt umbennen=======================================
@@ -78,7 +90,7 @@ def totxt():
 if authentication_status:
     authenticator.logout('Logout', 'main')
     if username == 'benutzer': #Wenn Ebnutzer eingeloggt ist, dann sollen alle Pages in .py umbenannt werden
-        st.write(f'Willkommen *{name}*')
+        st.write(f'Willkommen *{fullname}*')
         st.title('Alle Funktionen freigeschaltet')
         try: #Alle Pages im Ordner Pages werden von .txt in.py umbenannt
             os.rename("pages/Leukorechner.txt", "pages/Leukorechner.py")
@@ -88,7 +100,7 @@ if authentication_status:
         except (Exception):
             pass
     elif username == 'gast': #Wenn aber Gast eingeloggt ist, sollen nur die zwei Pages in .py umbenannt werden
-        st.write(f'Willkommen *{name}*')
+        st.write(f'Willkommen *{fullname}*')
         st.title('Beschränkter Zugriff auf Funktionen')
         try: #Die zwei Pages im Ordner Pages werden in .py umbenannt
             os.rename("pages/Funktionsweise.txt", "pages/Funktionsweise.py")
@@ -105,9 +117,11 @@ elif authentication_status == False: #Wenn aber das Passwort oder Benutzername f
         os.rename("pages/Über.py", "pages/Über.txt")
     except (Exception):
         pass
+
 elif authentication_status == None: #Ansonsten wenn niemand eingeloggt ist oder der Benutzer auf Logout klickt, sollen alle Pages wieder zurück zu .txt umbenannt werden
-    st.warning('Bitte Benutzernamen und Passwort eingeben')
-    totxt() #Die am Anfang definierte Funktion zum umbenennen in .txt wird aufgerufen
+ st.warning('Bitte Benutzernamen und Passwort eingeben')
+ totxt() #Die am Anfang definierte Funktion zum umbenennen in .txt wird aufgerufen
+
 
         
         
