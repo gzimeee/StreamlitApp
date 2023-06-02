@@ -1,0 +1,124 @@
+.main
+{
+background-image: url("https://siemens-digital-logistics.com/files/SDL_Cognisphere_XCelerator/deep-blue-background.jpg")
+}
+
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(300px);
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-300px);
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+
+
+
+h1 {
+  
+  font-family: Arial, Helvetica, sans-serif;
+  color: #00ffb9;
+  animation: fadeInRight 1s ease-in-out;
+}
+
+
+
+h2 {
+  color: #009999;
+  animation: fadeInRight 1s ease-in-out;
+}
+
+h3 {
+  color: #009999;
+  animation: fadeInRight 1s ease-in-out;
+}
+
+p {
+   font-family: "arial";
+   font-size: 20px;
+   color: #dfdfd9;
+   animation: fadeInLeft 1s ease-in-out;
+   
+   }
+
+tr:hover {background-color: #009999;}
+tr{color:red};
+
+
+.col_heading{
+
+color: #009999;
+
+} 
+.level0{
+
+color: #009999;
+
+} 
+
+
+
+.css-vk3wp9
+{
+background-color: #009999;
+
+} 
+
+
+.css-pkbazv {
+
+color: #dfdfd9;
+ font-size: 20px;
+}
+.e1fqkh3o5 {
+
+color: #dfdfd9;
+}
+
+  
+
+.e1jwn65y3{
+animation: fadeIn 6s; 
+
+
+
+} 
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+
+
+
+
+
+
+
+
+
+.css-1a32fsj{
+animation: grow 2s ease ;
+
+}
+@keyframes grow {
+  from { transform: scale(0); }
+  to { transform: scale(1); }
+}
+
+
+
+ e19lei0e0
