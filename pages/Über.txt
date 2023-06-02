@@ -3,7 +3,7 @@
 #   Beschreibung: Das ist die "Über"-Seite
 #   Hier werden die Informationen zu den Entwicklerinnen dargestellt. 
 #   
-#    Datum: 12.04.2023
+#    Datum: 02.06.2023
 #    Autoren: Gzime Ramadani, Rinesa Shabija, Priya Jose
 # =============================================================================
 
@@ -11,7 +11,7 @@
 
 # Schritt 1: Erstellen der Multipage APP=======================================
 #   Es wird eine Multipage APP erstellt.
-#   Es wird der Seitentitel mir Icon definiert.
+#   Es wird der Seitentitel mit Icon definiert.
 #   Es werden die Bilbiotheken / Packages importiert.
 # =============================================================================
 
@@ -21,9 +21,28 @@ st.set_page_config(
     page_icon="💓",
 )
 
+
+
+
+
 # Titel und Header
 st.title ("Über diese APP")
 st.header("Leukorechner")
+
+
+
+
+
+
+
+def local_css(file_name):
+    with open(file_name) as f:
+        st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
+
+local_css("style.css")
+
+
+
 
 
 # Schritt 2: Informationen zu den Entwicklerinnen==============================
@@ -31,10 +50,10 @@ st.header("Leukorechner")
 # =============================================================================
 
 # Informationen und Bild
-st.subheader('Version: 1.0')
-st.subheader('Datum: 10.04.2023')
+st.subheader('Version: 2.0')
+st.subheader('Datum: 02.06.2023')
 st.subheader('Entwickler: Gzime Ramadani, Rinesa Shabija, Priya Jose')
 st.subheader('Im Auftrag der Zürcher Hochschule für angewandte Wissenschaften')
 from PIL import Image
-image = Image.open('media/zhaw.png')
+image = Image.open('media\zhaw.png')
 st.image(image, caption='Copyright ZHAW')
