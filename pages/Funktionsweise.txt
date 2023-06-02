@@ -9,6 +9,7 @@
 # =============================================================================
 
 
+
 # Schritt 1: Erstellen der Multipage APP=======================================
 #   Es wird eine Multipage APP erstellt.
 #   Es wird der Seitentitel mir Icon definiert.
@@ -30,17 +31,30 @@ st.header("Beschreibung")
 
 
 
+def local_css(file_name):
+    with open(file_name) as f:
+        st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
+
+local_css("style.css")
+
+
+
 # Schritt 2: Text mit Referenztabelle==========================================
 #   Es wird eine Text mit der Funktionsweise sowie eine Tabelle mit den
 #   mit den Referenzwerten eingefügt
 # =============================================================================
 
+
+
 # Informationstext
 string = "Dieser Code ist eine Streamlit-App, die die Anzahl der weißen Blutkörperchen berechnet. Die App erstellt sechs Eingabefelder für die verschiedenen Arten von weißen Blutkörperchen (Stabkernige Neutrophile, Segmentkernige Neutrophile, Eosinophile, Basophile, Monozyten und Lymphozyten). Anhand der Referenzwerte und der Eingabewerte berechnet die App das Ergebnis und zeigt es in einem Balkendiagramm an. Das Balkendiagramm zeigt die Referenzwerte und die Benutzereingabe an und färbt die Balken entsprechend ein (Rot = Hoch, Grün = Normal, Gelb = Tief). Zusätzlich wird eine Diagnose erstellt."
 st.markdown(string)
 
+
+
 # Header für die Tabelle
 st.header("Referenzwerte")
+
 
 
 # Daten für die Tabelle
