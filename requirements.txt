@@ -2,6 +2,5 @@ pandas
 matplotlib
 datetime
 pillow
-jsonbin 
 streamlit_authenticator 
 PyYAML
